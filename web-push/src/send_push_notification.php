@@ -9,13 +9,13 @@ use Minishlink\WebPush\WebPush;
 // but in reality, you'll get this information in your database
 // because you already stored it (cf. push_subscription.php)
 $subscription = array(
-	"endpoint"=>"https://fcm.googleapis.com/fcm/send/c4pNsyIEb6E:APA91bEy6s5zSeY4cLzM-0aqg6_v1AnVeV7TXO579zRxClow1r1KH7llG7tbscuEQYJFZsd8j6h7UH5gzapIa4l9B5ZMO-Gt73SDjp4_6lVskuv_eHv-qTNH82-uSP9jbieLiJsgSfpX",
+	"endpoint"=>"https://fcm.googleapis.com/fcm/send/dD3ii6za3mM:APA91bGh0eQXZ87suPSSQ8cuLtocqLB7SJuAsIkt34ZYxGFZa0yQjHUUSVAeSp3orQn-B3AK9SEHKUsRewIL2942_ocnQLLEe189ke-GHzeV4WvYVwVKwC4ZxI8vMtBaLT5IIrcDF-yE",
     "msg"=>"Hello!",
-    "key"=>"BPjd3E4JkMQxt7nMmUa1LOHCNkDW7ME4dCHwSJbvhMi9XGu7guqxOR7gdMaQH3NDPR98byLUAa8CB9t7Q46HQEM=",
-    "token"=>"hoNir6AQoo4_jGtzbmOjwA=="
+    "key"=>"BLtMiJ0Ov7jXTHoCg2t1XG-xVRTAfSuloyidH9jhm7iVa4-oOogD8-YHo9baL0Wsg8kuTGuCeY6VBb7x8Tv4I_Y=",
+    "token"=>"vaEX5T-glWXd9fqYo58FjA=="
 );
 
-$subscription['msg'] = 'Ada diskonloh hayu buruan beli kurma oke...';
+$subscription['msg'] = 'bismillah...';
 
 $auth = array(
     'VAPID' => array(
