@@ -70,9 +70,12 @@ function subscribeUser() {
 function sendToDb(subscription) {
 	if (subscription) {
 		var content = JSON.stringify(subscription);
+		console.log(subscription);
 		var data = {};
 		data.ID = subscription.keys;
 		data.content = content;
+		
+		console.log(data);
 		$.ajax({
 			url:'https://ardiwinardi.000webhostapp.com/add',
 			type:'post',
