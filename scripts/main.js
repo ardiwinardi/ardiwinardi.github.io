@@ -76,7 +76,7 @@ function updateSubscriptionOnServer(subscription) {
 		var data = {};
 		data.content = content;
 		$.ajax({
-			url:'http://ardiwinardi.000webhostapp.com/add',
+			url:'https://ardiwinardi.000webhostapp.com/add',
 			type:'post',
 			data : data,
 			success:function(msg){
