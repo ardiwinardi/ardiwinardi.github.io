@@ -73,7 +73,7 @@ function sendToDb(subscription) {
 		var jstring = JSON.parse(content);
 		
 		var data = {};
-		data.key = jstring.keys.p256dh;
+		data.keyword = jstring.keys.p256dh;
 		data.token = jstring.keys.auth;
 		data.endpoint = jstring.endpoint;
 		$.ajax({
