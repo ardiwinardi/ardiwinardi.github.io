@@ -70,9 +70,10 @@ function subscribeUser() {
 function sendToDb(subscription) {
 	if (subscription) {
 		var content = JSON.stringify(subscription);
-		console.log(subscription);
+		var jstring = JSON.parse(content);
+		
 		var data = {};
-		data.ID = subscription.getKey();
+		data.ID = jstring.keys;
 		data.content = content;
 		
 		console.log(data);
