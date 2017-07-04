@@ -73,7 +73,7 @@ function sendToDb(subscription) {
 		var jstring = JSON.parse(content);
 		
 		
-		console.log(jsting);
+		console.log(jstring);
 		
 		var data = {};
 		data.ID = jstring.keys;
