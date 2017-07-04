@@ -73,6 +73,7 @@ function updateSubscriptionOnServer(subscription) {
 
 	if (subscription) {
 		var content = JSON.stringify(subscription);
+		var data = {};
 		data.content = content;
 		$.ajax({
 			url:'http://ardiwinardi.000webhostapp.com/add',
