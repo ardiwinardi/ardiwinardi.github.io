@@ -46,7 +46,6 @@ function initialiseUI() {
 
 		if (isSubscribed) {
 			console.log('User IS subscribed.');
-			updateSubscriptionOnServer(subscription);
 		} else {
 			console.log('User is NOT subscribed.');
 		}
@@ -61,16 +60,14 @@ function subscribeUser() {
 	})
 	.then(function(subscription) {
 		console.log('User is subscribed.');
-		updateSubscriptionOnServer(subscription);
+		sendToDb(subscription);
 	})
 	.catch(function(err) {
 		console.log('Failed to subscribe the user: ', err);
 	});
 }
 
-function updateSubscriptionOnServer(subscription) {
-	// TODO: Send subscription to application server
-
+function sendToDb(subscription) {
 	if (subscription) {
 		var content = JSON.stringify(subscription);
 		var data = {};
