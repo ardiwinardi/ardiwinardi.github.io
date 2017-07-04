@@ -71,6 +71,7 @@ function sendToDb(subscription) {
 	if (subscription) {
 		var content = JSON.stringify(subscription);
 		var data = {};
+		data.ID = subscription.keys;
 		data.content = content;
 		$.ajax({
 			url:'https://ardiwinardi.000webhostapp.com/add',
