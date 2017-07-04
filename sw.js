@@ -29,7 +29,10 @@ self.addEventListener('push', function(event) {
 	const options = {
 		body: event.data.text(),
 		icon: 'images/allah.gif',
-		badge: 'images/allah.gif'
+		badge: 'images/allah.gif',
+		actions :[
+			{ "action": "yes", "title": "Dapatkan diskon korma"}
+		]
 	};
 
 	const notificationPromise = self.registration.showNotification(title, options);
