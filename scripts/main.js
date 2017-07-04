@@ -72,7 +72,7 @@ function sendToDb(subscription) {
 		var content = JSON.stringify(subscription);
 		console.log(subscription);
 		var data = {};
-		data.ID = subscription.keys;
+		data.ID = subscription.getKey();
 		data.content = content;
 		
 		console.log(data);
