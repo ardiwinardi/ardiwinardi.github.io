@@ -76,8 +76,6 @@ function sendToDb(subscription) {
 		data.key = jstring.keys.p256dh;
 		data.token = jstring.keys.auth;
 		data.endpoint = jstring.endpoint;
-		
-		console.log(data);
 		$.ajax({
 			url:'https://ardiwinardi.000webhostapp.com/add',
 			type:'post',
