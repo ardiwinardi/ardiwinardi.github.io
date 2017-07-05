@@ -5,11 +5,8 @@ self.addEventListener('push', function(event) {
 	}
 	
 	var str = event.data.text();
+	var res = JSON.parse(str);
 	
-	console.log(str);
-	var res = eval("(" + str + ")");
-	
-	console.log(res.title);
 	const title = res.title;
 	const options = {
 		body: res.msg,
@@ -25,6 +22,7 @@ self.addEventListener('push', function(event) {
 });
 
 self.addEventListener('notificationclick', function(event) {
+	console.log(event);
 	event.notification.close();
 	event.waitUntil(
 		clients.openWindow('https://jadwalsholat.org/adzan/ajax/ajax.daily1.php?id=14')
