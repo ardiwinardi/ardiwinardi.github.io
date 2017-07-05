@@ -5,18 +5,28 @@ self.addEventListener('push', function(event) {
 	}
 	
 	var str = event.data.text();
-	var res = JSON.parse(str);
+	if(str){
+		var res = JSON.parse(str);
+	}
 	
-	const title = res.title;
+	var msg = res.msg || 'Test Message';
+	var icon = res.icon  || '';
+	var badge = res.badge || '';
+	var tag = res.tag || '';
+	var image = res.image || '';
+	var onclick = res.onclick || '';
+	var action_title = res.action_title || '';
+	
+	const title = res.title || 'Adzan Reminder';
 	const options = {
-		body: res.msg,
-		icon: res.icon,
-		badge: res.badge,
-		tag : res.tag,
-		image : res.image,
-		onclick : res.onclick,
+		body: msg,
+		icon: icon,
+		badge: badge,
+		tag : tag,
+		image : image,
+		onclick : onclick,
 		actions :[
-			{ "action": "yes", "title": res.action_title}
+			{ "action": "yes", "title": action_title}
 		]
 	};
 
