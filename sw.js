@@ -4,8 +4,11 @@ self.addEventListener('push', function(event) {
 	console.log(event);
 	console.log(event.data);
 	
+	console.log(JSON.parse(event.data.text()));
+	
 	console.log(event.data.text());
 	var res = event.data.text();
+	
 	const title = res.title;
 	const options = {
 		body: res.msg,
