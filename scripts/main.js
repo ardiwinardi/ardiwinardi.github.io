@@ -33,6 +33,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 }
 
 function initialiseUI() {
+	unsubscribeUser();
 	subscribeUser();
   
 	// Set the initial subscription value
@@ -56,15 +57,19 @@ function subscribeUser() {
 	})
 	.then(function(subscription) {
 		console.log('User is subscribed.');
-		sendToDb(subscription);
+		updateSubscriptionOnServer(subscription);
+		isSubscribed = true;
 	})
 	.catch(function(err) {
 		console.log('Failed to subscribe the user: ', err);
 	});
 }
 
-function sendToDb(subscription) {
+function updateSubscriptionOnServer(subscription) {
+	// TODO: Send subscription to application server
+	
 	if (subscription) {
+		//insert subs
 		var content = JSON.stringify(subscription);
 		var jstring = JSON.parse(content);
 		
@@ -72,11 +77,33 @@ function sendToDb(subscription) {
 		data.keyword = jstring.keys.p256dh;
 		data.token = jstring.keys.auth;
 		data.endpoint = jstring.endpoint;
-		$.ajax({
-			url:'https://ardiwinardi.000webhostapp.com/add',
-			type:'post',
-			data : data
-		})
+		$.ajax({url:'https://ardiwinardi.000webhostapp.com/add',type:'post',data : data});
 	}
 }
 
+function unsubscribeUser() {
+	swRegistration.pushManager.getSubscription()
+	.then(function(subscription) {
+		if (subscription) {
+			//delete subs
+			var content = JSON.stringify(subscription);
+			var jstring = JSON.parse(content);
+			
+			var data = {};
+			data.keyword = jstring.keys.p256dh;
+			data.token = jstring.keys.auth;
+			data.endpoint = jstring.endpoint;
+			$.ajax({url:'https://ardiwinardi.000webhostapp.com/del',type:'post',data : data});
+			return subscription.unsubscribe();
+		}
+	})
+	.catch(function(error) {
+		console.log('Error unsubscribing', error);
+	})
+	.then(function() {
+		updateSubscriptionOnServer(null);
+
+		console.log('User is unsubscribed.');
+		isSubscribed = false;
+	});
+}
