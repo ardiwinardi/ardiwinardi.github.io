@@ -1,8 +1,8 @@
 'use strict';
 
 self.addEventListener('push', function(event) {
+	console.log(event);
 	console.log(event.data);
-	console.log(event.data.json());
 	
 	const title = 'Adzan Reminder';
 	const options = {
@@ -19,8 +19,8 @@ self.addEventListener('push', function(event) {
 });
 
 self.addEventListener('notificationclick', function(event) {
+	console.log(event);
 	console.log(event.data);
-	console.log(event.data.json());
 	
 	event.notification.close();
 	event.waitUntil(
