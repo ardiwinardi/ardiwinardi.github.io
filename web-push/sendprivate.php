@@ -13,14 +13,13 @@ $webPush = new WebPush(array(
 ));
 
 $msg = '{
-	"msg": "Hari ini mau beli herbal insyaAllah, ada yang mau titip??",
+	"msg": "mau titip??",
 	"title": "Beli Herbal",
 	"icon": "images/allah.gif",
 	"badge": "images/allah.gif",
 	"action_title" : "Dapatkan diskon segera!!!",
-	"tag" : "shalat",
-	"image" : "images/kurma.jpg",
-	"onclick" : "https://ardiwinardi.github.io/"
+	"tag" : "https://ardiwinardi.github.io/",
+	"image" : "images/kurma.jpg"
 }';
 
 //ardi laptop
