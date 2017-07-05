@@ -1,19 +1,27 @@
-'use strict';
-
 self.addEventListener('push', function(event) {
-	console.log(event.data.text());
 	
-	var str = event.data.text();
-	var res = JSON.stringify(eval("(" + str + ")"));
 	
-	console.log(res.title);
-	const title = res.title;
+	if (!(self.Notification && self.notification.permission === 'granted')) {
+		return;
+	}
+
+	var data = {};
+	if (event.data) {
+		data = event.data.json();
+	}
+	console.log(data);
+	
+	
+	var message = data.message || "Assalamu'alaikum";
+	var icon = "images/new-notification.png";
+  
+	const title = data.title || "Adzan Reminder";
 	const options = {
-		body: res.msg,
-		icon: res.icon,
-		badge: res.badge,
+		body: message,
+		icon: icon,
+		badge: icon,
 		actions :[
-			{ "action": "yes", "title": res.action_title}
+			{ "action": "yes", "title": "diskon"}
 		]
 	};
 
