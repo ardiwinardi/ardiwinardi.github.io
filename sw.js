@@ -5,6 +5,8 @@ self.addEventListener('push', function(event) {
 	}
 	
 	var str = event.data.text();
+	
+	console.log(str);
 	var res = eval("(" + str + ")");
 	
 	console.log(res.title);
