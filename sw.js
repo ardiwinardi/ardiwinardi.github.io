@@ -4,7 +4,8 @@ self.addEventListener('push', function(event) {
 	console.log(event);
 	console.log(event.data);
 	
-	var res = JSON.parse(event.data.text());
+	console.log(event.data.text());
+	var res = event.data.text();
 	const title = res.title;
 	const options = {
 		body: res.msg,
@@ -20,9 +21,6 @@ self.addEventListener('push', function(event) {
 });
 
 self.addEventListener('notificationclick', function(event) {
-	console.log(event);
-	console.log(event.data);
-	
 	event.notification.close();
 	event.waitUntil(
 		clients.openWindow('https://jadwalsholat.org/adzan/ajax/ajax.daily1.php?id=14')
