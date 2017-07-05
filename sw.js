@@ -15,7 +15,9 @@ self.addEventListener('push', function(event) {
 		tag : res.tag,
 		image : res.image,
 		onclick : res.onclick,
-		actions :[{ "action": "yes", "title": res.action_title}]
+		actions :[
+			{ "action": "yes", "title": res.action_title}
+		]
 	};
 
 	const notificationPromise = self.registration.showNotification(title, options);
@@ -25,6 +27,6 @@ self.addEventListener('push', function(event) {
 self.addEventListener('notificationclick', function(event) {
 	event.notification.close();
 	event.waitUntil(
-		clients.openWindow(event.notification.tag);
+		clients.openWindow(event.notification.tag)
 	);
 });
