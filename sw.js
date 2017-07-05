@@ -4,13 +4,14 @@ self.addEventListener('push', function(event) {
 	console.log(event);
 	console.log(event.data);
 	
-	const title = 'Adzan Reminder';
+	var res = JSON.parse(event.data.text());
+	const title = res.title;
 	const options = {
-		body: event.data.text(),
-		icon: 'images/allah.gif',
-		badge: 'images/allah.gif',
+		body: res.msg,
+		icon: res.icon,
+		badge: res.badge,
 		actions :[
-			{ "action": "yes", "title": "Dapatkan diskon korma"}
+			{ "action": "yes", "title": res.action_title}
 		]
 	};
 
