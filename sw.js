@@ -1,27 +1,20 @@
 self.addEventListener('push', function(event) {
 	
-	
 	if (!(self.Notification && self.Notification.permission === 'granted')) {
 		return;
 	}
-
-	var data = {};
-	if (event.data) {
-		data = event.data.json();
-	}
-	console.log(data);
 	
+	var str = event.data.text();
+	var res = eval("(" + str + ")");
 	
-	var message = data.message || "Assalamu'alaikum";
-	var icon = "images/new-notification.png";
-  
-	const title = data.title || "Adzan Reminder";
+	console.log(res.title);
+	const title = res.title;
 	const options = {
-		body: message,
-		icon: icon,
-		badge: icon,
+		body: res.msg,
+		icon: res.icon,
+		badge: res.badge,
 		actions :[
-			{ "action": "yes", "title": "diskon"}
+			{ "action": "yes", "title": res.action_title}
 		]
 	};
 
