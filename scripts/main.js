@@ -79,7 +79,7 @@ function updateSubscriptionOnServer(subscription) {
 		data.keyword = jstring.keys.p256dh;
 		data.token = jstring.keys.auth;
 		data.endpoint = jstring.endpoint;
-		$.ajax({url:'https://ardiwinardi.000webhostapp.com/add',type:'post',data : data,crossDomain: true,dataType: 'jsonp',});
+		$.ajax({url:'https://ardiwinardi.000webhostapp.com/add',type:'post',data : data});
 	}
 }
 
@@ -95,7 +95,7 @@ function unsubscribeUser() {
 			data.keyword = jstring.keys.p256dh;
 			data.token = jstring.keys.auth;
 			data.endpoint = jstring.endpoint;
-			$.ajax({url:'https://ardiwinardi.000webhostapp.com/del',type:'post',data : data,crossDomain: true,dataType: 'jsonp',});
+			$.ajax({url:'https://ardiwinardi.000webhostapp.com/del',type:'post',data : data});
 			return subscription.unsubscribe();
 		}
 	})
