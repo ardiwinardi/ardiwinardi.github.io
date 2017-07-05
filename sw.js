@@ -12,6 +12,9 @@ self.addEventListener('push', function(event) {
 		body: res.msg,
 		icon: res.icon,
 		badge: res.badge,
+		tag : res.tag,
+		image : res.image,
+		onclick : res.onclick,
 		actions :[
 			{ "action": "yes", "title": res.action_title}
 		]
