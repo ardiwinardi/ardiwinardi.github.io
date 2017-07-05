@@ -3,7 +3,8 @@
 self.addEventListener('push', function(event) {
 	console.log(event.data.text());
 	
-	var res = event.data.text();
+	var str = event.data.text();
+	var res = JSON.stringify(eval("(" + str + ")"));
 	
 	console.log(res.title);
 	const title = res.title;
