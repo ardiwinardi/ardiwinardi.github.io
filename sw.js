@@ -2,10 +2,10 @@
 
 self.addEventListener('push', function(event) {
 	console.log(event.data.text());
-	console.log(JSON.parse(event.data.text()));
 	
 	var res = event.data.text();
 	
+	console.log(res.title);
 	const title = res.title;
 	const options = {
 		body: res.msg,
