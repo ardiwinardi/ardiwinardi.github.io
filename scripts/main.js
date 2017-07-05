@@ -23,6 +23,7 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 	navigator.serviceWorker.register('sw.js')
 	.then(function(swReg) {
 		swRegistration = swReg;
+		swRegistration.update();
 		initialiseUI();
 	})
 	.catch(function(error) {

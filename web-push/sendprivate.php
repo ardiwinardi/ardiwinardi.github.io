@@ -19,7 +19,7 @@ $msg = '{
 	"badge": "images/allah.gif",
 	"action_title" : "Dapatkan diskon segera!!!",
 	"tag" : "https://ardiwinardi.github.io/",
-	"image" : "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/6/000/294/381/355ce29.jpg"
+	"image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa0uE7yOsyx1gnBOVrYpiqzJQIKfxNaxUheOsEFLiF9sjwRT6N"
 }';
 
 //ardi laptop
