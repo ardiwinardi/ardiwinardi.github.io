@@ -1,7 +1,8 @@
 'use strict';
 
 var httpReq = new XMLHttpRequest();
-httpReq.setRequestHeader('Access-Control-Allow-Origin','https://ardiwinardi.000webhostapp.com');
+httpReq.open('POST', 'https://ardiwinardi.000webhostapp.com', true);
+httpReq.setRequestHeader('Access-Control-Allow-Origin','*');
 
 const applicationServerPublicKey = 'BDYmWnemb0QcQKXCPJvZmnfkCHKYyJvPSbTm1mmTR6lwOk-92uTswvEzSKsr0Rvnn35Tpyz1eExFe_285mheu5Y';
 let isSubscribed = false;
