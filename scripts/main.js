@@ -33,7 +33,8 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 }
 
 function initialiseUI() {
-	unsubscribeUser();
+	
+	//unsubscribeUser();
 	subscribeUser();
   
 	// Set the initial subscription value
