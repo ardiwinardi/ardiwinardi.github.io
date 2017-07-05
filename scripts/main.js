@@ -20,12 +20,8 @@ function urlB64ToUint8Array(base64String) {
 }
 
 if ('serviceWorker' in navigator && 'PushManager' in window) {
-	console.log('Service Worker and Push is supported');
-
 	navigator.serviceWorker.register('sw.js')
 	.then(function(swReg) {
-		console.log('Service Worker is registered', swReg);
-
 		swRegistration = swReg;
 		initialiseUI();
 	})
@@ -79,10 +75,7 @@ function sendToDb(subscription) {
 		$.ajax({
 			url:'https://ardiwinardi.000webhostapp.com/add',
 			type:'post',
-			data : data,
-			success:function(msg){
-				console.log(msg);
-			}
+			data : data
 		})
 	}
 }
