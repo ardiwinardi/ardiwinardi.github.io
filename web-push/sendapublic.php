@@ -17,6 +17,7 @@ $webPush = new WebPush($auth);
 $string = file_get_contents("https://ardiwinardi.000webhostapp.com/get");
 $json = json_decode($string,true);
 $sent = 0;
+
 foreach($json as $row){
 	
 	$subscription = array(
