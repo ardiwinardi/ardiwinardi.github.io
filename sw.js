@@ -11,12 +11,12 @@ self.addEventListener('push', function(event) {
 		body: 'Test'
 	}
 	
-	if(res = JSON.parse(str)){
-		var res = JSON.parse(str);
+	try {
+        var res = JSON.parse(str);
 		title = res.title;
 		options = res.options;
-	}
-	
+    } catch (e) {}
+    
 	const notificationPromise = self.registration.showNotification(title, options);
 	event.waitUntil(notificationPromise);
 });
