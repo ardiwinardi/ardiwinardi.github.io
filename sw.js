@@ -5,14 +5,13 @@ self.addEventListener('push', function(event) {
 	}
 	
 	var str = event.data.text();
-	console.log(str);
 	
 	var title = 'Adzan Reminder';
 	var options = {
 		body: 'Test'
 	}
 	
-	if(str){
+	if(res = JSON.parse(str)){
 		var res = JSON.parse(str);
 		title = res.title;
 		options = res.options;
