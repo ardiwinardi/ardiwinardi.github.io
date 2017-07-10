@@ -32,8 +32,8 @@ self.addEventListener('push', function(event) {
 		title = res.title;
 		options = res.options;
 		
-		setCookie('title',title,360);
-		setCookie('options',JSON.stringify(options),360);
+		setCookie('title',title,30);
+		setCookie('options',JSON.stringify(options),30);
 		
     } catch (e) {
 		
