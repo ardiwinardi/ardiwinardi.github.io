@@ -37,6 +37,7 @@ self.addEventListener('push', function(event) {
 		
     } catch (e) {
 		
+		console.log(e);
 		//var title = getCookie('title');
 		//var options = JSON.parse(getCookie('options'));
 	}
