@@ -34,9 +34,11 @@ self.addEventListener('push', function(event) {
 		
 		setCookie('title',title,360);
 		setCookie('options',JSON.stringify(options),360);
+		
     } catch (e) {
-		var title = getCookie('title');
-		var options = JSON.parse(getCookie('options'));
+		
+		//var title = getCookie('title');
+		//var options = JSON.parse(getCookie('options'));
 	}
     
 	const notificationPromise = self.registration.showNotification(title, options);
