@@ -1,8 +1,5 @@
-self.addEventListener('push', function(event) {
-	
-	if (!(self.Notification && self.Notification.permission === 'granted')) {
-		return;
-	}
+self.addEventListener('push', function(event) {	
+	if (!(self.Notification && self.Notification.permission === 'granted')) return;
 	
 	var str = event.data.text();
 	try {
@@ -14,7 +11,6 @@ self.addEventListener('push', function(event) {
 	}
     
 	const notificationPromise = self.registration.showNotification(title, options);
-	alert(123);
 	event.waitUntil(notificationPromise);
 });
 
