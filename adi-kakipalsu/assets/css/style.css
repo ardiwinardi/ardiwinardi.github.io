@@ -120,10 +120,17 @@ border-color:#51a038
 border:none;
 }
 
+.slide-home img{
+  max-height: 200px;
+}
 .slider-nav{
 bottom:10px
 }
 
 .slider-arrow{
 display:none
+}
+
+.our-value{
+  font-size:1.2em;
 }
