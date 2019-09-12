@@ -63,10 +63,6 @@
           <div class="ui large secondary inverted pointing menu">
             <a class="toc item"><i class="sidebar icon"></i></a>
 
-            <a class="ui logo icon image" href="/">
-                <img src="images/logo.jpg">
-            </a>
-
             <a class="active item">Home</a>
             <div class="ui simple dropdown item">
               Produk
@@ -93,11 +89,13 @@
         <div class="ui middle aligned stackable grid container">
           <div class="row">
             <div class="eight wide column">
-              <h3 class="ui header">Adi Orthotik Prosthetik</h3>
+              <h3 class="ui header">
+                <img src="images/logo.jpg">
+                Adi Orthotik Prosthetik</h3>
               <p>
                 <i>Spesialis Pembuatan Kaki Palsu, Tangan Palsu dan Alat Bantu Ortopedi</i>
               </p>
-              <a href="https://wa.me/+6285647344009" target="_blank" class="ui vertical animated button huge teal" tabindex="0">
+              <a href="https://wa.me/6285647344009" target="_blank" class="ui vertical animated button huge teal" tabindex="0">
                 <div class="hidden content">HUBUNGI SEKARANG</div>
                 <div class="visible content">
                   <i class="whatsapp icon"></i>
@@ -138,7 +136,7 @@
       <div class="ui vertical stripe quote segment container">
         <div class="ui equal width stackable internally celled grid">
           <div class="aligned row">
-            <div class="column">
+            <div class="column center aligned page">
                 <h3>Mengapa memilih kami ?</h3>
               	<div class="ui grid our-value">
               	   <div class="column left aligned">
@@ -161,7 +159,7 @@
               	   </div>
               	</div>
             </div>
-            <div class="column">
+            <div class="column center aligned page">
               <h3>Prosedur Pelayanan</h3>
               <div class="ui mini vertical steps" style="margin-top:-1%">
                   <div class="step">
@@ -187,6 +185,60 @@
                   </div>
                 </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="ui recent-works vertical segment container">
+        <div class="ui stackable center aligned page grid">
+          <div class="row">
+            <div class="eight wide column">
+              <h1 class="ui header">
+                Our Clients
+              </h1>
+            </div>
+          </div>
+          <div class="four column logo row">
+            <div class="column">
+              <div class="ui shape">
+                <div class="sides">
+                  <div class="active side">
+                    <img src="images/logo.jpg">
+                  </div>
+                  <div class="side">
+                    <img src="images/logo.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="ui shape">
+                <div class="sides">
+                  <div class="active side">
+                    <img src="images/logo.jpg">
+                  </div>
+                  <div class="side">
+                    <img src="images/logo.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="column">
+              <div class="ui shape">
+                <div class="sides">
+                  <div class="active side">
+                    <img src="images/logo.jpg">
+                  </div>
+                  <div class="side">
+                    <img src="images/logo.jpg">
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -220,8 +272,17 @@
       </div>
 
       <div class="ui vertical stripe container">
-        <h1><center>Testimoni</center></h1>
-        <div class="ui link three cards centered">
+        <div class="ui stackable center aligned page grid">
+          <div class="row">
+            <div class="eight wide column">
+              <h1 class="ui header">
+                Testimoni
+              </h1><br/>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui link stackable three cards centered">
 
           <div class="card">
             <div class="image">
@@ -362,6 +423,30 @@
 
         // create sidebar and attach to menu open
         $(".ui.sidebar").sidebar("attach events", ".toc.item");
+
+        var
+          changeSides = function() {
+            $('.ui.shape')
+              .eq(0)
+                .shape('flip over')
+                .end()
+              .eq(1)
+                .shape('flip over')
+                .end()
+              .eq(2)
+                .shape('flip back')
+                .end()
+              .eq(3)
+                .shape('flip back')
+                .end()
+            ;
+          };
+
+          $('.masthead .information')
+            .transition('scale in', 1000)
+          ;
+
+          setInterval(changeSides, 3000);
       });
     </script>
   </body>
