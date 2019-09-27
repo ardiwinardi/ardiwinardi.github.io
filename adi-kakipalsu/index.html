@@ -1,453 +1,543 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
-    />
-    <meta
-      name="description"
-      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
-    />
-    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
-    <meta name="author" content="PPType" />
-    <meta name="theme-color" content="#ffffff" />
-    <title>Prototype Adi-kakipalsu</title>
-    <link rel="stylesheet" href="plugins/semantic-ui/semantic.min.css" type="text/css"/>
-    <link rel="stylesheet" href="plugins/jquery.glide/slider.css" type="text/css"/>
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
+<html lang="en">
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  </head>
+        <title> Adi Kakipalsu :: Modern Bulma Ecommerce App and Dashboard</title>
+        <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
-  <body id="root">
-    <div class="ui large top fixed hidden menu">
-      <div class="ui container">
-        <a class="ui logo icon image" href="/">
-      	   <img src="images/logo.jpg">
-      	</a>
-        <a class="active item">Home</a>
-        <div class="ui simple dropdown item">
-          Produk
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item">Prostetis Standart</div>
-            <div class="item">Prostetis Import</div>
-            <div class="item">Alat Bantu Ortopedi</div>
-          </div>
-        </div>
-        <a class="item">Praktek</a>
-        <a class="item">Pemesanan</a>
-        <a class="item">Kontak Kami</a>
-        <div class="right menu">
-          <div class="item"><a class="ui button">Log in</a></div>
-          <div class="item"><a class="ui primary button">Sign Up</a></div>
-        </div>
-      </div>
-    </div>
-    <!--Sidebar Menu-->
-    <div class="ui vertical inverted sidebar menu">
-      <a class="active item">Home</a>
-      <a class="item">Produk</a>
-      <a class="item">Praktek</a>
-      <a class="item">Pemesanan</a>
-      <a class="item">Kontak Kami</a>
-      <a class="item">Login</a>
-      <a class="item">Signup</a>
-    </div>
-    <!--Page Contents-->
-    <div class="pusher">
-      <div class="ui inverted vertical masthead center aligned segment">
-        <div class="ui container">
-          <div class="ui large secondary inverted pointing menu">
-            <a class="toc item"><i class="sidebar icon"></i></a>
+        <!--Core CSS -->
+        <link rel="stylesheet" href="assets/css/bulma.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/core.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+        <!--Libraries-->
+        <link rel="stylesheet" type="text/css" href="assets/css/icons.css">
 
-            <a class="active item">Home</a>
-            <div class="ui simple dropdown item">
-              Produk
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <div class="item">Prostetis Standart</div>
-                <div class="item">Prostetis Import</div>
-                <div class="item">Alat Bantu Ortopedi</div>
-              </div>
-            </div>
-
-            <a class="item">Praktek</a>
-            <a class="item">Pemesanan</a>
-            <a class="item">Kontak Kami</a>
-            <div class="right item">
-              <a class="ui inverted button">Log in</a>
-              <a class="ui inverted button">Sign Up</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ui vertical stripe segment container">
-        <div class="ui middle aligned stackable grid container">
-          <div class="row">
-            <div class="eight wide column">
-              <h3 class="ui header">
-                <img src="images/logo.jpg">
-                Adi Orthotik Prosthetik</h3>
-              <p>
-                <i>Spesialis Pembuatan Kaki Palsu, Tangan Palsu dan Alat Bantu Ortopedi</i>
-              </p>
-              <a href="https://wa.me/6285647344009" target="_blank" class="ui vertical animated button huge teal" tabindex="0">
-                <div class="hidden content">HUBUNGI SEKARANG</div>
-                <div class="visible content">
-                  <i class="whatsapp icon"></i>
-                  SAYA MAU MEMESAN
-                </div>
-              </a>
-            </div>
-            <div class="six wide right floated column">
-              <div class="slider slider1 slide-home">
-                <div class="slides">
-                  <div class="slide-item item1">
-                    <img src="images/produk8.jpg" class="ui large bordered rounded image">
-                  </div>
-                  <div class="slide-item item2">
-                    <img src="images/bengkel1.jpg" class="ui large bordered rounded image">
-                  </div>
-                  <div class="slide-item item3">
-                    <img src="images/produk9.jpg" class="ui large bordered rounded image">
-                  </div>
-                  <div class="slide-item item4">
-                    <img src="images/bengkel3.jpg" class="ui large bordered rounded image">
-                  </div>
-                  <div class="slide-item item4">
-                    <img src="images/produk10.jpg" class="ui large bordered rounded image">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="center aligned column">
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ui vertical stripe quote segment container">
-        <div class="ui equal width stackable internally celled grid">
-          <div class="aligned row">
-            <div class="column center aligned page">
-                <h3>Mengapa memilih kami ?</h3>
-              	<div class="ui grid our-value">
-              	   <div class="column left aligned">
-              		  <div class="ui list">
-              			 <a class="item">
-              				<i class="check circle large icon green"></i>
-              				<div class="content">
-              				   <div class="header">Berkualitas</div>
-              				   <div class="description">Produk dibuat oleh tenaga ahli yang berpengalaman.</div>
-              				</div>
-              			 </a>
-              			 <a class="item">
-              				<i class="check circle large icon green"></i>
-              				<div class="content">
-              				   <div class="header">Home Visit</div>
-              				   <div class="description">Untuk wilayah Bandung dan sekitarnya, kami bisa melayani Anda dengan melakukan home visit.</div>
-              				</div>
-              			 </a>
-              		  </div>
-              	   </div>
-              	</div>
-            </div>
-            <div class="column center aligned page">
-              <h3>Prosedur Pelayanan</h3>
-              <div class="ui mini vertical steps" style="margin-top:-1%">
-                  <div class="step">
-                    <i class="wheelchair green icon"></i>
-                    <div class="content">
-                      <div class="title">Konsultasi</div>
-                      <div class="description">konsultasi dan dilakukan pengukuran-pengukuran.</div>
+    </head>
+    <body>
+        <div id="preloader">
+            <div id="status"></div>
+        </div>        
+        
+        
+        
+        <section class="hero is-fullheight is-default is-bold">
+        
+            <nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="https://cssninja.io">
+                            <img src="assets/images/logos/logo_text.png" alt="">
+                        </a>
+            
+                        <a class="navbar-item is-hidden-desktop is-hidden-tablet">
+                            <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+                                <svg width="1000px" height="1000px">
+                                    <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+                                    <path class="path2" d="M 300 500 L 700 500"></path>
+                                    <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+                                </svg>
+                                <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+                            </div>
+                        </a>
+            
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
                     </div>
-                  </div>
-                  <div class="step">
-                    <i class="wrench blue icon"></i>
-                    <div class="content">
-                      <div class="title">Pengerjaan</div>
-                      <div class="description">Berkisar 3-5 hari tergantung pada kerumitan pesanan</div>
+            
+                    <div id="navbar-menu" class="navbar-menu is-static">
+            
+                        <div class="navbar-start">
+                            <a class="navbar-item is-hidden-mobile">
+                                <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+                                    <svg width="1000px" height="1000px">
+                                        <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+                                        <path class="path2" d="M 300 500 L 700 500"></path>
+                                        <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+                                    </svg>
+                                    <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="navbar-end">
+                            <a href="#" class="navbar-item is-secondary">
+                                Praktek
+                            </a>
+                            <a href="#" class="navbar-item is-secondary">
+                                Pemesanan
+                            </a>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                    Produk
+                                </a>
+            
+                                <div class="navbar-dropdown">
+                                    <a class="navbar-item">
+                                        Prostetis Standart
+                                    </a>
+                                    <a class="navbar-item">
+                                        Prostetis Import
+                                    </a>
+                                    <a class="navbar-item">
+                                        Alat Bantu Ortopedi
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
+                                Log in
+                            </a>
+                            <a class="navbar-item">
+                                <span class="button signup-button rounded secondary-btn raised">
+                                    Sign up
+                                </span>
+                            </a>
+                        </div>
                     </div>
-                  </div>
-                  <div class="step">
-                    <i class="heart red icon"></i>
-                    <div class="content">
-                      <div class="title">Pemasangan</div>
-                      <div class="description">Edukasi dan penyetelan sampai customer nyaman</div>
+                </div>
+            </nav>
+        
+            <nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="https://cssninja.io">
+                            <img src="assets/images/logos/logo_text.png" alt="">
+                        </a>
+            
+                        <a class="navbar-item is-hidden-desktop is-hidden-tablet">
+                            <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+                                <svg width="1000px" height="1000px">
+                                    <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+                                    <path class="path2" d="M 300 500 L 700 500"></path>
+                                    <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+                                </svg>
+                                <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+                            </div>
+                        </a>
+            
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
                     </div>
-                  </div>
+            
+                    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+            
+                        <div class="navbar-start">
+                            <a class="navbar-item is-hidden-mobile">
+                                <div id="cloned-menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+                                    <svg width="1000px" height="1000px">
+                                        <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+                                        <path class="path2" d="M 300 500 L 700 500"></path>
+                                        <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+                                    </svg>
+                                    <button id="cloned-menu-icon-trigger" class="menu-icon-trigger"></button>
+                                </div>
+                            </a>
+                        </div>
+            
+                        <div class="navbar-end">
+                            <a href="#" class="navbar-item is-secondary">
+                                Features
+                            </a>
+                            <a href="#" class="navbar-item is-secondary">
+                                Pricing
+                            </a>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                    Dropdown
+                                </a>
+            
+                                <div class="navbar-dropdown">
+                                    <a class="navbar-item">
+                                        Dropdown item
+                                    </a>
+                                    <a class="navbar-item">
+                                        Dropdown item
+                                    </a>
+                                    <a class="navbar-item">
+                                        Dropdown item
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
+                                Log in
+                            </a>
+                            <a class="navbar-item">
+                                <span class="button signup-button rounded secondary-btn raised">
+                                    Sign up
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-vcentered">
+                        <div class="column is-5 is-offset-1 landing-caption">
+                            <h1 class="title is-1 is-bold is-spaced">
+                                Adi Kakipalsu
+                            </h1>
+                            <h2 class="subtitle is-5 is-muted is">Spesialis Pembuatan Kaki Palsu, Tangan Palsu dan Alat Bantu Ortopedi. </h2>
+                            <p>
+                                <a class="button cta rounded primary-btn raised">
+                                    Hubungi Kami
+                                </a>
+                            </p>
+                        </div>
+                        <div class="column is-5 is-offset-1">
+                            <figure class="image is-4by2">
+                                <img src="assets/images/illustrations/home.png" alt="Description">
+                            </figure>
+                        </div>
+        
+                    </div>
                 </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="ui recent-works vertical segment container">
-        <div class="ui stackable center aligned page grid">
-          <div class="row">
-            <div class="eight wide column">
-              <h1 class="ui header">
-                Our Clients
-              </h1>
-            </div>
-          </div>
-          <div class="four column logo row">
-            <div class="column">
-              <div class="ui shape">
-                <div class="sides">
-                  <div class="active side">
-                    <img src="images/logo.jpg">
-                  </div>
-                  <div class="side">
-                    <img src="images/logo.jpg">
-                  </div>
+        
+            <div class="hero-foot mb-20">
+                <div class="container">
+                    <div class="tabs is-centered">
+                        <ul>
+                            <li><a><img class="partner-logo" src="assets/images/logos/clients/systek.svg"></a></li>
+                            <li><a><img class="partner-logo" src="assets/images/logos/clients/tribe.svg"></a></li>
+                            <li><a><img class="partner-logo" src="assets/images/logos/clients/kromo.svg"></a></li>
+                            <li><a><img class="partner-logo" src="assets/images/logos/clients/infinite.svg"></a></li>
+                            <li><a><img class="partner-logo" src="assets/images/logos/clients/gutwork.svg"></a></li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
             </div>
-
-            <div class="column">
-              <div class="ui shape">
-                <div class="sides">
-                  <div class="active side">
-                    <img src="images/logo.jpg">
-                  </div>
-                  <div class="side">
-                    <img src="images/logo.jpg">
-                  </div>
+        </section>
+        
+        <section class="section section-feature-grey is-medium">
+            <div class="container">
+                <div class="title-wrapper has-text-centered">
+                    <h2 class="title is-2">Pelayanan Kami </h2>
+                    <h3 class="subtitle is-5 is-muted">Dengan senang hati dan penuh tanggung jawab</h3>
+                    <div class="divider is-centered"></div>
                 </div>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="ui shape">
-                <div class="sides">
-                  <div class="active side">
-                    <img src="images/logo.jpg">
-                  </div>
-                  <div class="side">
-                    <img src="images/logo.jpg">
-                  </div>
+        
+                <div class="content-wrapper">
+                    <div class="columns">
+                        <div class="column is-one-third">
+                            <div class="feature-card is-bordered has-text-centered revealOnScroll delay-1" data-animation="fadeInLeft">
+                                <div class="card-title">
+                                    <h4>Ramah</h4>
+                                </div>
+                                <div class="card-icon">
+                                    <img src="assets/images/illustrations/ramah.png">
+                                </div>
+                                <div class="card-text">
+                                    <p>This is some explanatory text that is on two rows</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#" class="button btn-align-md accent-btn raised">Free Trial</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="feature-card is-bordered has-text-centered revealOnScroll delay-2" data-animation="fadeInLeft">
+                                <div class="card-title">
+                                    <h4>Nyaman</h4>
+                                </div>
+                                <div class="card-icon">
+                                    <img src="assets/images/illustrations/nyaman.png">
+                                </div>
+                                <div class="card-text">
+                                    <p>This is some explanatory text that is on two rows</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#" class="button btn-align-md secondary-btn raised">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="feature-card is-bordered has-text-centered revealOnScroll delay-3" data-animation="fadeInLeft">
+                                <div class="card-title">
+                                    <h4>Berkualitas</h4>
+                                </div>
+                                <div class="card-icon">
+                                    <img src="assets/images/illustrations/berkualitas.png">
+                                </div>
+                                <div class="card-text">
+                                    <p>This is some explanatory text that is on two rows</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#" class="button btn-align-md primary-btn raised">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-
-          </div>
+        </section>
+        
+        <section class="section is-medium">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-centered-tablet-portrait">
+                        <h1 class="title section-title">Yang terbaik dari kami</h1>
+                        <h3 class="subtitle is-4 is-muted">Kami akan mengerti anda</h3>
+                        <div class="divider"></div>
+                    </div>
+                    <div class="column is-8 mt-60">
+        
+                        <!-- icon block -->
+                        <article class="media icon-box">
+                            <figure class="media-left">
+                                <p class="image">
+                                    <img src="assets/images/illustrations/icons/laptop-globe.svg">
+                                </p>
+                            </figure>
+                            <div class="media-content mt-50">
+                                <div class="content">
+                                    <p>
+                                        <span class="icon-box-title">Powerful and unified interface</span>
+                                        <span class="icon-box-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- /icon block -->
+        
+                        <!-- icon block -->
+                        <article class="media icon-box">
+                            <figure class="media-left">
+                                <p class="image">
+                                    <img src="assets/images/illustrations/icons/doc-sync.svg">
+                                </p>
+                            </figure>
+                            <div class="media-content mt-50">
+                                <div class="content">
+                                    <p>
+                                        <span class="icon-box-title">Cross device Synchronisation</span>
+                                        <span class="icon-box-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- /icon block -->
+        
+                        <!-- icon block -->
+                        <article class="media icon-box">
+                            <figure class="media-left">
+                                <p class="image">
+                                    <img src="assets/images/illustrations/icons/mobile-feed.svg">
+                                </p>
+                            </figure>
+                            <div class="media-content mt-50">
+                                <div class="content">
+                                    <p>
+                                        <span class="icon-box-title">Nomad System</span>
+                                        <span class="icon-box-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- /icon block -->
+        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section is-medium section-secondary">
+            <div class="container">
+        
+                <div class="title-wrapper has-text-centered">
+                    <h2 class="title is-2 light-text is-spaced">Apa kata mereka !</h2>
+                    <h3 class="subtitle is-5 light-text">Testimoni para customer tentang pelayanan kami</h3>
+                </div>
+        
+                <div class="content-wrapper">
+                    <div class="columns is-vcentered">
+                        <div class="column is-4">
+                            <figure class="testimonial">
+                                <blockquote>
+                                    Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+                                </blockquote>
+                                <div class="author">
+                                    <img src="assets/images/illustrations/faces/1.png" alt=""/>
+                                    <h5>Irma Walters</h5><span>Accountant</span>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="column is-4">
+                            <figure class="testimonial">
+                                <blockquote>
+                                    Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+                                </blockquote>
+                                <div class="author">
+                                    <img src="assets/images/illustrations/faces/2.png" alt=""/>
+                                    <h5>John Bradley</h5><span>Financial Analyst</span>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="column is-4">
+                            <figure class="testimonial">
+                                <blockquote>
+                                    Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+                                </blockquote>
+                                <div class="author">
+                                    <img src="assets/images/illustrations/faces/3.png" alt=""/>
+                                    <h5>Gary Blackman</h5><span>HR Manager</span>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div id="auth-modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="flex-card auth-card">
+                    <div class="tabs-wrapper">
+                        <div class="tabs">
+                            <ul>
+                                <li class="is-active" data-tab="login-tab"><a>Login</a></li>
+                                <li data-tab="register-tab"><a>Register</a></li>
+                            </ul>
+                        </div>
+                        <div id="login-tab" class="tab-content is-active">
+                            <div class="field">
+                                <label>Username</label>
+                                <div class="control">
+                                    <input type="text" class="input is-medium" placeholder="Enter username">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Password</label>
+                                <div class="control">
+                                    <input type="password" class="input is-medium" placeholder="Enter password">
+                                </div>
+                            </div>
+        
+                            <a class="button is-fullwidth secondary-btn is-rounded raised">Log in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
         </div>
-      </div>
-
-
-      <div class="ui vertical stripe quote segment container">
-        <div class="ui equal width stackable internally celled grid">
-          <div class="aligned row">
-            <div class="column">
-              <p>
-                <b>Wilayah Bandung</b>
-                <br/>Jl. Jatihandap atas Kec. Mandalajati Kota Bandung.
-                <a href="https://goo.gl/maps/CyJy1m4d66Wr8XUu5" target="_blank"><i class="map red marker alternate icon"></i>Klik disini</a>
-              </p>
-              <p><i class="whatsapp square green icon"></i>
-              <b>Sri Mulyadi</b> : 085647344009</p>
-              <p>
+        
+        <footer class="footer footer-dark">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <div class="footer-logo">
+                            <img src="assets/images/logos/fresh-white-alt.svg">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="footer-column">
+                            <div class="footer-header">
+                                <h3>Product</h3>
+                            </div>
+                            <ul class="link-list">
+                                <li><a href="#">Prostetis Standart</a></li>
+                                <li><a href="#">Prostetis import</a></li>
+                                <li><a href="#">Alat Bantu Othopedi</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="footer-column">
+                            <div class="footer-header">
+                                <h3>Alamat</h3>
+                            </div>
+                            <ul class="link-list">
+                                <li><a> Jl. Jatihandap atas Kec. Mandalajati, Kota Bandung.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="footer-column">
+                            <div class="footer-header">
+                                <h3>Follow Us</h3>
+                                <nav class="level is-mobile">
+                                    <div class="level-left">
+                                        <a class="level-item" href="https://github.com/#">
+                                            <span class="icon"><i class="fa fa-github"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://dribbble.com/#">
+                                            <span class="icon"><i class="fa fa-dribbble"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://fb.com/#">
+                                            <span class="icon"><i class="fa fa-facebook"></i></span>
+                                        </a>
+                                        <a class="level-item" href="https://twitter.com/#">
+                                            <span class="icon"><i class="fa fa-twitter"></i></span>
+                                        </a>
+                                       <a class="level-item" href="https://bitbucket.org/#">
+                                            <span class="icon"><i class="fa fa-bitbucket"></i></span>
+                                        </a>
+                                    </div>
+                                </nav>
+        
+                                <a href="https://bulma.io" target="_blank">
+                                    <img src="assets/images/logos/logo_text.png" alt="Made with Bulma" width="128" height="24">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="column">
-              <p>
-                <b>Wilayah Banyumas</b>
-                <br/>Perum Puri Banyumas No.37. Desa Kedunguter
-                <a href="https://goo.gl/maps/CyJy1m4d66Wr8XUu5" target="_blank"><i class="map red marker alternate icon"></i>Klik disini</a>
-              </p>
-              <p><i class="whatsapp square green icon"></i>
-              <b>Sri Mulyadi</b> : 085647344009</p>
-              <p>
+        </footer>
+        <!-- Back To Top Button -->
+        <div id="backtotop"><a href="#"></a></div>        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logos/fresh-square.svg">
+                <a class="sidebar-close" href="javascript:void(0);"><i data-feather="x"></i></a>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ui vertical stripe container">
-        <div class="ui stackable center aligned page grid">
-          <div class="row">
-            <div class="eight wide column">
-              <h1 class="ui header">
-                Testimoni
-              </h1><br/>
+            <div class="inner">
+                <ul class="sidebar-menu">
+                    <li><span class="nav-section-title"></span></li>
+                    <li class="have-children"><a href="#"><span class="fa fa-user"></span>User</a>
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Account</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li class="have-children"><a href="#"><span class="fa fa-envelope"></span>Messages</a>
+                        <ul>
+                            <li><a href="#">Inbox</a></li>
+                            <li><a href="#">Compose</a></li>
+                        </ul>
+                    </li>
+                    <li class="have-children"><a href="#"><span class="fa fa-image"></span>Images</a>
+                        <ul>
+                            <li><a href="#">Library</a></li>
+                            <li><a href="#">Upload</a></li>
+                        </ul>
+                    </li>
+                    <li class="have-children"><a href="#"><span class="fa fa-cog"></span>Settings</a>
+                        <ul>
+                            <li><a href="#">User settings</a></li>
+                            <li><a href="#">App settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-          </div>
-        </div>
-
-        <div class="ui link stackable three cards centered">
-
-          <div class="card">
-            <div class="image">
-              <img src="images/customer1.jpg">
-            </div>
-            <div class="content" style="font-size: 0.9em;">
-              <div class="header">Alhamdulillah, Pak Azka dengan tangan barunya</div>
-              <div class="description">
-                <img class="ui wireframe image" src="images/short-paragraph.png"><br/>
-              </div>
-            </div>
-
-            <div class="extra content" style="font-size: 0.9em;">
-              <span class="right floated">
-                <i class="ui clock icon"></i>4 bulan yang lalu
-              </span>
-            </div>
-          </div>
-          <!--end card-->
-
-          <div class="card">
-            <div class="image">
-              <img src="images/customer2.jpg">
-            </div>
-            <div class="content" style="font-size: 0.9em;">
-              <div class="header">Alhamdulillah, Balita Rina</div>
-              <div class="description">
-                <img class="ui wireframe image" src="images/short-paragraph.png"><br/>
-              </div>
-            </div>
-
-            <div class="extra content" style="font-size: 0.9em;">
-              <span class="right floated">
-                <i class="ui clock icon"></i>6 bulan yang lalu
-              </span>
-            </div>
-          </div>
-          <!--end card-->
-
-          <div class="card">
-            <div class="image">
-              <img src="images/customer4.jpg">
-            </div>
-            <div class="content" style="font-size: 0.9em;">
-              <div class="header">Alhamdulillah, Hani kini bisa berjalan</div>
-              <div class="description">
-                <img class="ui wireframe image" src="images/short-paragraph.png"><br/>
-              </div>
-            </div>
-
-            <div class="extra content" style="font-size: 0.9em;">
-              <span class="right floated">
-                <i class="ui clock icon"></i>1 tahun yang lalu
-              </span>
-            </div>
-          </div>
-          <!--end card-->
-        </div>
-      </div>
-
-      <h4 class="ui horizontal divider header container">
-        <i class="tag icon"></i>
-        Artikel
-      </h4>
-
-      <div class="ui vertical stripe segment container">
-        <div class="ui text container">
-          <h3 class="ui header">Cara Menangani Scoliosis Tanpa Operasi</h3>
-          <p>
-            Sebelum masuk ke pembahasan Cara Menangani Scoliosis Tanpa Operasi kita akan bahas tentang scoliosis terlebih dahulu.
-          </p>
-          <a class="ui large button blue">Baca Selengkapnya</a>
-
-          <div class="ui divider"></div>
-
-          <h3 class="ui header">Pengobatan Cerebral Palsy</h3>
-          <p>
-            Cerebral Palsy (CP) adalah gangguan gerak yang mempengaruhi otot,gerakan dan ketrampilan motorik ( kemampuan untuk bergerak secara terarah / terkoordinasi ) yang disebabkan oleh kerusakan otak.
-          </p>
-          <a class="ui large button blue">Baca Selengkapnya</a>
-        </div>
-      </div>
-      <div class="ui inverted vertical footer segment">
-        <div class="ui container">
-          <div class="ui stackable inverted divided equal height stackable grid">
-            <div class="three wide column">
-              <h4 class="ui inverted header">About</h4>
-              <div class="ui inverted link list">
-                <a class="item" href="#root">Sitemap</a>
-                <a class="item" href="#root">Contact Us</a>
-                <a class="item" href="#root">Religious Ceremonies</a>
-                <a class="item" href="#root">Gazebo Plans</a>
-              </div>
-            </div>
-            <div class="three wide column">
-              <h4 class="ui inverted header">Services</h4>
-              <div class="ui inverted link list">
-                <a class="item" href="#root">Banana Pre-Order</a>
-                <a class="item" href="#root">DNA FAQ</a>
-                <a class="item" href="#root">How To Access</a>
-                <a class="item" href="#root">Favorite X-Men</a>
-              </div>
-            </div>
-            <div class="seven wide column">
-              <h4 class="ui inverted header">Alamat Workshop</h4>
-              <p>
-                Jl. Jatihandap atas Kec. Mandalajati Kota Bandung.
-                depan pintu masuk terminal Cicaheum.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script src="plugins/semantic-ui/semantic.min.js"></script>
-    <script src="plugins/jquery.glide/jquery.glide.min.js"></script>
-
-    <script>
-      $(document).ready(function() {
-        // fix menu when passed
-        $(".masthead").visibility({
-          once: false,
-          onBottomPassed: function() {
-            $(".fixed.menu").transition("fade in");
-          },
-          onBottomPassedReverse: function() {
-            $(".fixed.menu").transition("fade out");
-          }
-        });
-
-        $('.slider').glide({
-          autoplay: 5000,
-          arrowsWrapperClass: 'slider-arrows',
-          arrowRightText: '',
-          arrowLeftText: ''
-        });
-
-        // create sidebar and attach to menu open
-        $(".ui.sidebar").sidebar("attach events", ".toc.item");
-
-        var
-          changeSides = function() {
-            $('.ui.shape')
-              .eq(0)
-                .shape('flip over')
-                .end()
-              .eq(1)
-                .shape('flip over')
-                .end()
-              .eq(2)
-                .shape('flip back')
-                .end()
-              .eq(3)
-                .shape('flip back')
-                .end()
-            ;
-          };
-
-          $('.masthead .information')
-            .transition('scale in', 1000)
-          ;
-
-          setInterval(changeSides, 3000);
-      });
-    </script>
-  </body>
+        </div>        <!-- jQuery first, then Bootstrap JS. -->
+        <script src="assets/js/app.js"></script>
+        
+        <!-- JS -->
+        <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <!--script src="assets/js/jquery-panelslider/jquery.panelslider.min.js"></script-->
+        <script src="assets/js/fresh.js"></script>
+        <!-- /JS -->    </body>
 </html>
