@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pelatihan PHP</title>
+    <link rel="stylesheet" href="bulma.min.css">
+  </head>
+  <body>
+  <nav class="navbar is-info">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="#">
+				Pelatihan PHP
+			</a>
+			<div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div id="navbarExampleTransparentExample" class="navbar-menu">
+			<div class="navbar-start is-link">
+				<a class="navbar-item" href="">
+					Home
+				</a>
+			</div>
+		</div>
+	</nav>
+
+  <section class="section">
+    <div class="container">
+        <h1 class="title">
+          Materi
+        </h1>
+
+        <b>Materi pertemuan 2</b><br/>
+      	<code>
+      	php artisan migrate<br/>
+      	composer require laravel/ui --dev<br/>
+      	php artisan ui vue --auth<br/>
+      	npm install<br/>
+      	npm run dev<br/>
+      	</code>
+
+        <hr/>
+        <b>Materi pertemuan 3</b><br/>
+        Eksekusi di mysql :<br/>
+
+      	<code>
+      	use db_pub16;<br/>
+      	ALTER TABLE db_pub16.users MODIFY COLUMN id varchar(36) NOT NULL;<br/>
+      	ALTER TABLE db_pub16.users ADD nim varchar(20) NOT NULL AFTER name;
+      	</code>
+        <br/>
+        <br/>
+        masuk ke foldernya via cmd<br/>
+        <code>
+          php artisan serve
+        </code>
+        <br/>
+        Download UUID, source : <a href="https://id-laravel.com/post/menggunakan-uuid-di-php-laravel">https://id-laravel.com/post/menggunakan-uuid-di-php-laravel</a><br/>
+        <code>
+        composer require ramsey/uuid
+      </code>
+      <hr/>
+      <b>Materi pertemuan 4</b><br/>
+      1. Migration :<br/>
+      <a href="https://laravel.com/docs/6.x/migrations">https://laravel.com/docs/6.x/migrations</a>
+      <br/>
+      <code>
+        php artisan make:migration create_artikel_table --create=tb_article
+      </code>
+      <br/>
+      Di file create table article : (lokasi di database/migration) <br/>
+      <code><pre>
+        public function up()
+        {
+            Schema::create('tb_article', function (Blueprint $table) {
+              $table->string('id',36)->primary();
+              $table->string('title');
+              $table->text('body');
+              $table->timestamps();
+            });
+        }
+      </pre></code>
+      <br/>
+      Membuat Class ArticleTableSeeder : (lokasi di database/seeds)<br>
+      <code>
+        php artisan make:seeder ArticleTableSeeder
+      </code><br/><br/>
+      di File ArticleTableSeeder: <br/>
+      Dibagian atas class ditambahkan
+      <br/>
+      <code><pre>
+        use App\Article;
+        use Ramsey\Uuid\Uuid;
+      </pre></code>
+      <br/>
+      Kemudian
+      <br/>
+      <code><pre>
+        public function run()
+        {
+            Article::truncate();
+
+            $faker = \Faker\Factory::create();
+            for ($i = 0; $i < 50; $i++) {
+              $uuid = Uuid::uuid1();
+              Article::create([
+                'id' => $uuid->toString(),
+                'title' => $faker->sentence,
+                'body' => $faker->paragraph,
+              ]);
+            }
+        }
+      </pre></code><br/>
+      <br/>
+      Membuat Class Article : (lokasi di App)<br>
+      <code>
+        php artisan make:model Article
+      </code><br/>
+      <br/>
+      Kemudian disesuaikan, ditambahkan atribute : <br>
+      <code><pre>
+        protected $table = 'tb_article';
+        protected $fillable = ['id','title','body'];
+      </pre></code><br/>
+      <br/>
+      terakhir kita eksekusi db:seed dengan : <br>
+      <code>
+        php artisan db:seed
+      </code><br/>
+
+      <br/>
+      2. Membuat Data Dummy : <br/>
+      <a href="https://laravel.com/docs/6.x/seeding">https://laravel.com/docs/6.x/seeding</a><br/>
+      Library \Faker\Factory :  <a href="https://github.com/fzaninotto/Faker/blob/master/readme.md">https://github.com/fzaninotto/Faker/blob/master/readme.md</a>
+
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/>
+  </section>
+  </body>
+</html>
