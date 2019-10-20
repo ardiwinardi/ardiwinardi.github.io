@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +11,7 @@
   <nav class="navbar is-info">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="#">
-				
+				Pelatihan PHP
 			</a>
 			<div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
 				<span></span>
@@ -21,7 +22,7 @@
 		<div id="navbarExampleTransparentExample" class="navbar-menu">
 			<div class="navbar-start is-link">
 				<a class="navbar-item" href="">
-					Pelatihan PHP 17
+					Home
 				</a>
 			</div>
 		</div>
@@ -139,6 +140,53 @@ class Article extends Model
   });
 </pre></code>
 
+<hr/>
+
+<b>Materi pertemuan 5</b><br/>
+Tambahkan file blade pada /views/article/index.blade.php<br/>
+yang isinya :<br/>
+<kbd>
+<code><pre>
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+      &lt;head&gt;
+          &lt;meta charset="utf-8"&gt;
+          &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+          &lt;title&gt;Laravel 17&lt;/title&gt;
+          &lt;link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div class="container"&gt;
+          &lt;h1 class="title"&gt;
+              Article
+          &lt;/h1&gt;
+
+          &lt;table class="table"&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th scope="col"&gt;#&lt;/th&gt;
+                &lt;th scope="col"&gt;Title&lt;/th&gt;
+                &lt;th scope="col"&gt;Created At&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            @foreach($articles as $article)
+            &lt;tbody&gt;
+              &lt;tr&gt;
+                &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
+                &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
+                &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+            @endforeach
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/body&gt;
+  &lt;/html&gt;
+
+
+</pre></code>
+</kbd>
   <br/><br/><br/><br/>
   <br/><br/><br/><br/>
 
