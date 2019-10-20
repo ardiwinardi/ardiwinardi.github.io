@@ -143,7 +143,15 @@ class Article extends Model
 <hr/>
 
 <b>Materi pertemuan 5</b><br/>
-Tambahkan file blade pada /views/article/index.blade.php<br/>
+1. Tambahkan di route (web.php):
+<code><pre>
+  Route::get('/article', function () {
+      $articles = Article::all();
+      return view('article.index', ['articles' => $articles, 'no' => 1]);
+  });
+</pre></code>
+<br/>
+2. Tambahkan file blade pada /views/article/index.blade.php<br/>
 yang isinya :<br/>
 <kbd>
 <code><pre>
