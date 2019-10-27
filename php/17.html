@@ -158,9 +158,8 @@ class Article extends Model
 2. Tambahkan file blade pada /views/article/index.blade.php<br/>
 yang isinya :<br/>
 <kbd>
-<code><pre>
-  &lt;!DOCTYPE html&gt;
-  &lt;html&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
+  &lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
       &lt;head&gt;
           &lt;meta charset="utf-8"&gt;
           &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -173,11 +172,17 @@ yang isinya :<br/>
           &lt;h1 class="title"&gt;
               Article
           &lt;/h1&gt;
+          &lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+            &lt;a href="{{ route('article.create') }}" class="btn btn-primary"&gt; Tambah Baru&lt;/a&gt;
+          &lt;/nav&gt;
+
+          &lt;br/&gt;
 
           &lt;table class="table"&gt;
             &lt;thead&gt;
               &lt;tr&gt;
                 &lt;th scope="col"&gt;#&lt;/th&gt;
+                &lt;th scope="col"&gt;ID&lt;/th&gt;
                 &lt;th scope="col"&gt;Title&lt;/th&gt;
                 &lt;th scope="col"&gt;Created At&lt;/th&gt;
               &lt;/tr&gt;
@@ -186,6 +191,7 @@ yang isinya :<br/>
             &lt;tbody&gt;
               &lt;tr&gt;
                 &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
+                &lt;td&gt;{{ $article-&gt;id }}&lt;/td&gt;
                 &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
                 &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
               &lt;/tr&gt;
@@ -195,9 +201,7 @@ yang isinya :<br/>
         &lt;/div&gt;
       &lt;/body&gt;
   &lt;/html&gt;
-
-
-</pre></code>
+  </code></pre>
 </kbd>
 <b>Materi pertemuan 6</b><br/>
 1. <a href="https://docs.google.com/forms/d/e/1FAIpQLScIXrFZ-UWtjMc-7UZrZ7Ig9zZB-u8UxBLOEpI87lZ7fj3glw/viewform" target="_blank">
