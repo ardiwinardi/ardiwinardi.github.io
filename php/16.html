@@ -29,7 +29,7 @@
 
   <section class="section">
     <div class="container">
-        <b>Materi pertemuan 2</b><br/>
+        <b class="title">Materi pertemuan 2</b><br/>
       	<code>
       	php artisan migrate<br/>
       	composer require laravel/ui --dev<br/>
@@ -39,7 +39,7 @@
       	</code>
 
         <hr/>
-        <b>Materi pertemuan 3</b><br/>
+        <b class="title">Materi pertemuan 3</b><br/>
         Eksekusi di mysql :<br/>
 
       	<code>
@@ -59,7 +59,7 @@
         composer require ramsey/uuid
       </code>
       <hr/>
-      <b>Materi pertemuan 4</b><br/>
+      <b class="title">Materi pertemuan 4</b><br/>
       1. Migration :<br/>
       <a href="https://laravel.com/docs/6.x/migrations">https://laravel.com/docs/6.x/migrations</a>
       <br/>
@@ -68,17 +68,16 @@
       </code>
       <br/>
       Di file create table article : (lokasi di database/migration) <br/>
-      <code><pre>
-        public function up()
-        {
-            Schema::create('tb_article', function (Blueprint $table) {
-              $table->string('id',36)->primary();
-              $table->string('title');
-              $table->text('body');
-              $table->timestamps();
-            });
-        }
-      </pre></code>
+<pre><code>public function up()
+{
+    Schema::create('tb_article', function (Blueprint $table) {
+      $table->string('id',36)->primary();
+      $table->string('title');
+      $table->text('body');
+      $table->timestamps();
+    });
+}
+</code></pre>
       <br/>
       2. Membuat Data Dummy : <br/>
       <a href="https://laravel.com/docs/6.x/seeding">https://laravel.com/docs/6.x/seeding</a><br/>
@@ -91,29 +90,27 @@
       di File ArticleTableSeeder: <br/>
       Dibagian atas class ditambahkan
       <br/>
-      <code><pre>
-        use App\Article;
-        use Ramsey\Uuid\Uuid;
-      </pre></code>
+<pre><code>use App\Article;
+use Ramsey\Uuid\Uuid;
+</code></pre>
       <br/>
       Kemudian
       <br/>
-      <code><pre>
-        public function run()
-        {
-            Article::truncate();
+<pre><code>public function run()
+{
+    Article::truncate();
 
-            $faker = \Faker\Factory::create();
-            for ($i = 0; $i < 50; $i++) {
-              $uuid = Uuid::uuid1();
-              Article::create([
-                'id' => $uuid->toString(),
-                'title' => $faker->sentence,
-                'body' => $faker->paragraph,
-              ]);
-            }
-        }
-      </pre></code><br/>
+    $faker = \Faker\Factory::create();
+    for ($i = 0; $i < 50; $i++) {
+      $uuid = Uuid::uuid1();
+      Article::create([
+        'id' => $uuid->toString(),
+        'title' => $faker->sentence,
+        'body' => $faker->paragraph,
+      ]);
+    }
+}
+</code></pre><br/>
       <br/>
       Membuat Class Article : (lokasi di App)<br>
       <code>
@@ -121,17 +118,126 @@
       </code><br/>
       <br/>
       Kemudian disesuaikan, ditambahkan atribute : <br>
-      <code><pre>
-        protected $table = 'tb_article';
-        protected $fillable = ['id','title','body'];
-      </pre></code><br/>
+<pre><code>protected $table = 'tb_article';
+protected $fillable = ['id','title','body'];
+</code></pre>
+      <br/>
       <br/>
       terakhir kita eksekusi db:seed dengan : <br>
       <code>
         php artisan db:seed
       </code><br/>
+      <br/>
+      <hr/>
+      <b class="title">Materi pertemuan 5</b><br/>
+      1. Create Controller :<br/>
+      <a href="https://laravel.com/docs/6.x/controllers">https://laravel.com/docs/6.x/controllers</a><br/>
+      <code>
+        php artisan make:controller ArticleController --resource
+      </code><br/>
+      atau<br/>
+      <code>
+        php artisan make:controller ArticleController -r
+      </code><br/><br/>
+      2. Kemudian tambahkan route untuk mengakses resource controller tersebut, seperti berikut (lokasi di routes/web.php) : <br/>
+<pre><code>Route::resource('/article','ArticleController')->middleware(['auth']);
+</code></pre>
+      Tambahkan middleware seperti diatas agar route tersebut hanya bisa diakses oleh user yang sudah login.
+      <br/>
+      <br/>
+      Untuk mengecek list route, lakukan perintah berikut pada terminal/ cmd:<br/>
+      <code>
+        php artisan route:list
+      </code><br/><br/>
+      3. Kemudian pada ArticleController modifikasi method index seperti berikut : <br/>
+<pre><code>&lt;?php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Article;
+
+class ArticleController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $articles = Article::all();
+
+        return view('article.index',['articles'=&gt;$articles, 'no'=&gt;1]);
+    }
+
+    ....
+}
+</code></pre>
+        <br/><br/>
+        4. Kemudian buat view index.blade.php didalam folder article (lokasi resources/views/): <br/>
+<pre><code>@extends('layouts.app')
+@section('content')
+&lt;div class="container"&gt;
+  &lt;div class="row justify-content-center"&gt;
+      &lt;div class="col-md-8"&gt;
+          &lt;div class="card"&gt;
+              &lt;div class="card-header"&gt;Dashboard&lt;/div&gt;
+
+              &lt;div class="card-body"&gt;
+                  @if (session('status'))
+                      &lt;div class="alert alert-success" role="alert"&gt;
+                          {{ session('status') }}
+                      &lt;/div&gt;
+                  @endif
+
+                  &lt;h1 class="title"&gt;
+                      Article
+                  &lt;/h1&gt;
+                  &lt;a href="{{ route('article.create') }}"&gt;Tambah&lt;/a&gt;
+
+                  &lt;table class="table"&gt;
+                    &lt;thead&gt;
+                      &lt;tr&gt;
+                        &lt;th scope="col"&gt;#&lt;/th&gt;
+                        &lt;th scope="col"&gt;ID&lt;/th&gt;
+                        &lt;th scope="col"&gt;Title&lt;/th&gt;
+                        &lt;th scope="col"&gt;Created At&lt;/th&gt;
+                      &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    @foreach($articles as $article)
+                    &lt;tbody&gt;
+                      &lt;tr&gt;
+                        &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
+                        &lt;td&gt;{{ $article-&gt;id }}&lt;/td&gt;
+                        &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
+                        &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
+                      &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                    @endforeach
+                  &lt;/table&gt;
+              &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+@endsection
+</code></pre>
+    <br/><br/>
+    5. Kemudian sesuaikan model Article, sebagai berikut : (lokasi App): <br/>
+<pre><code>&lt;?php
+namespace App;
+use Illuminate\Database\Eloquent\Model;
+
+class Article extends Model
+{
+  protected $table = 'tb_article';
+  protected $fillable = ['id','title','body'];
+  public $incrementing = false;
+}
+</code></pre>
 
     </div>
+    <br/><br/><br/><br/><br/><br/><br/>
     <br/><br/><br/><br/><br/><br/><br/>
   </section>
   </body>
