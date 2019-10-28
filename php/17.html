@@ -4,34 +4,32 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pelatihan PHP</title>
+    <title>Pelatihan PHP 17</title>
     <link rel="stylesheet" href="bulma.min.css">
   </head>
   <body>
-  <nav class="navbar is-info">
-		<div class="navbar-brand">
-			<a class="navbar-item" href="#">
-				Pelatihan PHP
-			</a>
-			<div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-		<div id="navbarExampleTransparentExample" class="navbar-menu">
-			<div class="navbar-start is-link">
-				<a class="navbar-item" href="">
-					Home
-				</a>
-			</div>
-		</div>
-	</nav>
+    <nav class="navbar is-info">
+  		<div class="navbar-brand">
+  			<a class="navbar-item" href="#"></a>
+  			<div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+  				<span></span>
+  				<span></span>
+  				<span></span>
+  			</div>
+  		</div>
+  		<div id="navbarExampleTransparentExample" class="navbar-menu">
+  			<div class="navbar-start is-link">
+  				<a class="navbar-item" href="">
+  					Pelatihan PHP 17
+  				</a>
+  			</div>
+  		</div>
+  	</nav>
 
   <section class="section">
     <div class="container">
-	<b>Materi pertemuan 2</b><br/>
-	1. Ubang Setinggan .env  (Database)<br/>
+	<b class="title">Materi pertemuan 2</b><br/>
+	1. Ubah Setinggan .env  (Database)<br/>
 	2. Ubah Key
 		> masuk	via cmd
 	<br/>
@@ -48,7 +46,7 @@
 
 	<hr/>
 
-	<b>Materi pertemuan 3</b><br/>
+	<b class="title">Materi pertemuan 3</b><br/>
 	1. Installasi laravel 5.8<br/>
 	<code>
 	composer create-project --prefer-dist laravel/laravel laravel_17 "5.8.*"
@@ -74,7 +72,7 @@
 
   <hr/>
 
-	<b>Materi pertemuan 4</b><br/>
+	<b class="title">Materi pertemuan 4</b><br/>
 	1. Create Controller<br/>
   <code>
     php artisan make:controller AboutController
@@ -82,16 +80,15 @@
 
   <br/>
   2. Create Table Artikel<br/>
-  <code><pre>
-  CREATE TABLE `tb_article` (
-  `id` varchar(36) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `body` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  <pre><code>CREATE TABLE `tb_article` (
+    `id` varchar(36) NOT NULL,
+    `title` varchar(255) NOT NULL,
+    `body` text NOT NULL,
+    `created_at` timestamp NULL DEFAULT NULL,
+    `updated_at` timestamp NULL DEFAULT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB
-</pre></code><br/>
+</code></pre><br/>
 > Menggunakan Migration Laravel :<br/>
 <a href="https://laravel.com/docs/5.8/migrations">https://laravel.com/docs/5.8/migrations</a>
 <br/>
@@ -100,17 +97,16 @@
 </code>
 <br/>
 Di file create table article : (lokasi di database/migration) <br/>
-<code><pre>
-  public function up()
-  {
-      Schema::create('tb_article', function (Blueprint $table) {
-        $table->string('id',36)->primary();
-        $table->string('title');
-        $table->text('body')->nullable();
-        $table->timestamps();
-      });
-  }
-</pre></code>
+<pre><code>public function up()
+{
+    Schema::create('tb_article', function (Blueprint $table) {
+      $table->string('id',36)->primary();
+      $table->string('title');
+      $table->text('body')->nullable();
+      $table->timestamps();
+    });
+}
+</code></pre>
 <br/>Kemudian eksekusi<br/>
 <code>
   php artisan migrate
@@ -123,8 +119,7 @@ Di file create table article : (lokasi di database/migration) <br/>
 
 <br/>
 Modifikasi pada model :
-<code><pre>
-namespace App;
+<pre><code>namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -132,85 +127,235 @@ class Article extends Model
     protected $table = 'tb_article';
 
 }
-</pre></code>
+</code></pre>
 4. Tambahkan di route:
-<code><pre>
-  Route::get('/article/list', function () {
-      $list = Article::all();
-      foreach($list as $art){
-        echo 'Title = '.$art['title'];
-        echo '------';
-      }
-  });
-</pre></code>
+<pre><code>Route::get('/article/list', function () {
+    $list = Article::all();
+    foreach($list as $art){
+      echo 'Title = '.$art['title'];
+      echo '------';
+    }
+});
+</code></pre>
 
 <hr/>
 
-<b>Materi pertemuan 5</b><br/>
+<b class="title">Materi pertemuan 5</b><br/>
 1. Tambahkan di route (web.php):
-<code><pre>
-  Route::get('/article', function () {
-      $articles = Article::all();
-      return view('article.index', ['articles' => $articles, 'no' => 1]);
-  });
-</pre></code>
+<pre><code>Route::get('/article', function () {
+    $articles = Article::all();
+    return view('article.index', ['articles' => $articles, 'no' => 1]);
+});
+</code></pre>
 <br/>
 2. Tambahkan file blade pada /views/article/index.blade.php<br/>
 yang isinya :<br/>
-<kbd>
-  <pre><code>&lt;!DOCTYPE html&gt;
-  &lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
-      &lt;head&gt;
-          &lt;meta charset="utf-8"&gt;
-          &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-          &lt;title&gt;Laravel 17&lt;/title&gt;
-          &lt;link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;title&gt;Laravel 17&lt;/title&gt;
+        &lt;link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"&gt;
 
-      &lt;/head&gt;
-      &lt;body&gt;
-        &lt;div class="container"&gt;
-          &lt;h1 class="title"&gt;
-              Article
-          &lt;/h1&gt;
-          &lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
-            &lt;a href="{{ route('article.create') }}" class="btn btn-primary"&gt; Tambah Baru&lt;/a&gt;
-          &lt;/nav&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div class="container"&gt;
+        &lt;h1 class="title"&gt;
+            Article
+        &lt;/h1&gt;
+        &lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+          &lt;a href="{{ route('article.create') }}" class="btn btn-primary"&gt; Tambah Baru&lt;/a&gt;
+        &lt;/nav&gt;
 
-          &lt;br/&gt;
+        &lt;br/&gt;
 
-          &lt;table class="table"&gt;
-            &lt;thead&gt;
-              &lt;tr&gt;
-                &lt;th scope="col"&gt;#&lt;/th&gt;
-                &lt;th scope="col"&gt;ID&lt;/th&gt;
-                &lt;th scope="col"&gt;Title&lt;/th&gt;
-                &lt;th scope="col"&gt;Created At&lt;/th&gt;
-              &lt;/tr&gt;
-            &lt;/thead&gt;
-            @foreach($articles as $article)
-            &lt;tbody&gt;
-              &lt;tr&gt;
-                &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
-                &lt;td&gt;{{ $article-&gt;id }}&lt;/td&gt;
-                &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
-                &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
-              &lt;/tr&gt;
-            &lt;/tbody&gt;
-            @endforeach
-          &lt;/table&gt;
-        &lt;/div&gt;
-      &lt;/body&gt;
-  &lt;/html&gt;
-  </code></pre>
-</kbd>
-<b>Materi pertemuan 6</b><br/>
-1. <a href="https://docs.google.com/forms/d/e/1FAIpQLScIXrFZ-UWtjMc-7UZrZ7Ig9zZB-u8UxBLOEpI87lZ7fj3glw/viewform" target="_blank">
+        &lt;table class="table"&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th scope="col"&gt;#&lt;/th&gt;
+              &lt;th scope="col"&gt;ID&lt;/th&gt;
+              &lt;th scope="col"&gt;Title&lt;/th&gt;
+              &lt;th scope="col"&gt;Created At&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          @foreach($articles as $article)
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
+              &lt;td&gt;{{ $article-&gt;id }}&lt;/td&gt;
+              &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
+              &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+          @endforeach
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<b class="title">Materi pertemuan 6</b><br/>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScIXrFZ-UWtjMc-7UZrZ7Ig9zZB-u8UxBLOEpI87lZ7fj3glw/viewform" target="_blank">
 Klik disini untuk QUIZ 1</a>
-<br/>
-<br/>
-Download UUID, source : <a href="https://id-laravel.com/post/menggunakan-uuid-di-php-laravel">https://id-laravel.com/post/menggunakan-uuid-di-php-laravel</a><br/>
+<br/><br/>
+1. Create Controller :<br/>
+<a href="https://laravel.com/docs/6.x/controllers">https://laravel.com/docs/6.x/controllers</a><br/>
 <code>
-composer require ramsey/uuid
+  php artisan make:controller ArticleController --resource
+</code><br/>
+atau<br/>
+<code>
+  php artisan make:controller ArticleController -r
+</code><br/><br/>
+2. Kemudian tambahkan route untuk mengakses resource controller tersebut, seperti berikut (lokasi di routes/web.php) : <br/>
+<pre><code>Route::resource('/article','ArticleController');
+</code></pre>
+<br/>
+<br/>
+Untuk mengecek list route, lakukan perintah berikut pada terminal/ cmd:<br/>
+<code>
+  php artisan route:list
+</code><br/><br/>
+3. Kemudian pada ArticleController modifikasi method index seperti berikut : <br/>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Article;
+use Ramsey\Uuid\Uuid;
+
+class ArticleController extends Controller
+{
+
+    public function index()
+    {
+      $articles = Article::all();
+      return view('article.index', ['articles' =&gt; $articles, 'no' =&gt; 1]);
+    }
+
+    public function create()
+    {
+        return view('article.create');
+    }
+
+    public function store(Request $request)
+    {
+        $params = $request-&gt;all();
+
+        $uuid1 = Uuid::uuid1();
+        Article::create([
+          'id' =&gt; $uuid1-&gt;toString(),
+          'title' =&gt; $params['title'],
+          'body' =&gt; $params['body']
+        ]);
+
+        return redirect()-&gt;route('article.index');
+    }
+
+    ....
+}</code></pre>
+Karena kita akan menggunakan library UUID, maka Download UUID, source : <a href="https://id-laravel.com/post/menggunakan-uuid-di-php-laravel">https://id-laravel.com/post/menggunakan-uuid-di-php-laravel</a><br/>
+<code>
+composer require ramsey/uuid</code><br/>
+  <br/>
+  4. Kemudian buat view index.blade.php didalam folder article (lokasi resources/views/): <br/>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;title&gt;Laravel 17&lt;/title&gt;
+        &lt;link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div class="container"&gt;
+        &lt;h1 class="title"&gt;
+            Article
+        &lt;/h1&gt;
+        &lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+          &lt;a href="{{ route('article.create') }}" class="btn btn-primary"&gt; Tambah Baru&lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;br/&gt;
+
+        &lt;table class="table"&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th scope="col"&gt;#&lt;/th&gt;
+              &lt;th scope="col"&gt;ID&lt;/th&gt;
+              &lt;th scope="col"&gt;Title&lt;/th&gt;
+              &lt;th scope="col"&gt;Created At&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          @foreach($articles as $article)
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
+              &lt;td&gt;{{ $article-&gt;id }}&lt;/td&gt;
+              &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
+              &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+          @endforeach
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<br/>
+5. Kemudian buat view create.blade.php didalam folder article (lokasi resources/views/): <br/>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;title&gt;Laravel 17&lt;/title&gt;
+        &lt;link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div class="container"&gt;
+        &lt;h1 class="title"&gt;
+            Create Article
+        &lt;/h1&gt;
+        &lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+          &lt;a href="{{ route('article.index') }}" class="btn btn-info"&gt; Back&lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;br/&gt;
+
+        &lt;form action="{{ route('article.store') }}" method="POST"&gt;
+          @csrf
+          &lt;div class="form-group"&gt;
+            &lt;label for="title"&gt;Title&lt;/label&gt;
+            &lt;input type="text" name="title" class="form-control" id="title" placeholder="Enter title"&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label for="body"&gt;Body&lt;/label&gt;
+            &lt;textarea name="body" rows="5" class="form-control" id="body" placeholder="Body"&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+          &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+      &lt;/form&gt;
+
+
+      &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><br/>
+6. Kemudian sesuaikan model Article, sebagai berikut : (lokasi App): <br/>
+<pre><code>&lt;?php
+namespace App;
+use Illuminate\Database\Eloquent\Model;
+
+class Article extends Model
+{
+  protected $table = 'tb_article';
+  protected $fillable = ['id','title','body'];
+  public $incrementing = false;
+}
+</code></pre>
+
+</div>
   <br/><br/><br/><br/>
   <br/><br/><br/><br/>
 
