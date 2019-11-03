@@ -269,7 +269,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request-&gt;all(), [
-            'title' =&gt; 'required|unique:tb_articles|max:255',
+            'title' =&gt; 'required|unique:tb_article|max:255',
             'body' =&gt; 'required',
         ]);
 
