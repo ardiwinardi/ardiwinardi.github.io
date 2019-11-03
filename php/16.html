@@ -275,7 +275,7 @@ class ArticleController extends Controller
 
         if ($validator-&gt;fails()) {
             return redirect()
-                        -&gt;route('article.index')
+                        -&gt;route('article.create')
                         -&gt;withErrors($validator)
                         -&gt;withInput();
         }
@@ -296,7 +296,7 @@ class ArticleController extends Controller
 }
 </code></pre>
 <br/><br/>
-2. Kemudian buat view index.create.php didalam folder article (lokasi resources/views/): <br/>
+2. Kemudian buat view create.blade.php didalam folder article (lokasi resources/views/): <br/>
 <pre><code>@extends('layouts.app')
 
 @section('content')
