@@ -178,53 +178,55 @@ class ArticleController extends Controller
 </code></pre>
         <br/><br/>
         4. Kemudian buat view index.blade.php didalam folder article (lokasi resources/views/): <br/>
-<pre><code>@extends('layouts.app')
-@section('content')
-&lt;div class="container"&gt;
-  &lt;div class="row justify-content-center"&gt;
-      &lt;div class="col-md-8"&gt;
-          &lt;div class="card"&gt;
-              &lt;div class="card-header"&gt;Dashboard&lt;/div&gt;
+        <pre><code>@extends('layouts.app')
 
-              &lt;div class="card-body"&gt;
-                  @if (session('status'))
-                      &lt;div class="alert alert-success" role="alert"&gt;
-                          {{ session('status') }}
-                      &lt;/div&gt;
-                  @endif
+        @section('content')
+        &lt;div class="container"&gt;
+            &lt;div class="row justify-content-center"&gt;
+                &lt;div class="col-md-8"&gt;
+                    &lt;div class="card"&gt;
+                        &lt;div class="card-header"&gt;Dashboard&lt;/div&gt;
 
-                  &lt;h1 class="title"&gt;
-                      Article
-                  &lt;/h1&gt;
-                  &lt;a href="{{ route('article.create') }}"&gt;Tambah&lt;/a&gt;
+                        &lt;div class="card-body"&gt;
+                            &lt;h1 class="title"&gt;
+                              Article
+                            &lt;/h1&gt;
 
-                  &lt;table class="table"&gt;
-                    &lt;thead&gt;
-                      &lt;tr&gt;
-                        &lt;th scope="col"&gt;#&lt;/th&gt;
-                        &lt;th scope="col"&gt;ID&lt;/th&gt;
-                        &lt;th scope="col"&gt;Title&lt;/th&gt;
-                        &lt;th scope="col"&gt;Created At&lt;/th&gt;
-                      &lt;/tr&gt;
-                    &lt;/thead&gt;
-                    @foreach($articles as $article)
-                    &lt;tbody&gt;
-                      &lt;tr&gt;
-                        &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
-                        &lt;td&gt;{{ $article-&gt;id }}&lt;/td&gt;
-                        &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
-                        &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
-                      &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                    @endforeach
-                  &lt;/table&gt;
-              &lt;/div&gt;
-          &lt;/div&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-@endsection
-</code></pre>
+                            &lt;nav class="navbar navbar-light"&gt;
+                              &lt;a class="navbar-brand"&gt;&lt;/a&gt;
+                              &lt;a href="{{ route('article.create') }}" class="btn btn-primary my-2 my-sm-0"&gt;Tambah&lt;/a&gt;
+                            &lt;/nav&gt;
+
+                            &lt;br/&gt;
+
+
+                            &lt;table class="table"&gt;
+                              &lt;thead&gt;
+                                &lt;tr&gt;
+                                  &lt;th scope="col"&gt;#&lt;/th&gt;
+                                  &lt;th scope="col"&gt;ID&lt;/th&gt;
+                                  &lt;th scope="col"&gt;Title&lt;/th&gt;
+                                  &lt;th scope="col"&gt;Created At&lt;/th&gt;
+                                &lt;/tr&gt;
+                              &lt;/thead&gt;
+                              @foreach($articles as $article)
+                              &lt;tbody&gt;
+                                &lt;tr&gt;
+                                  &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
+                                  &lt;td&gt;{{ $article-&gt;id }}&lt;/td&gt;
+                                  &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
+                                  &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
+                                &lt;/tr&gt;
+                              &lt;/tbody&gt;
+                              @endforeach
+                            &lt;/table&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        @endsection
+        </code></pre>
     <br/><br/>
     5. Kemudian sesuaikan model Article, sebagai berikut : (lokasi App): <br/>
 <pre><code>&lt;?php
@@ -237,6 +239,107 @@ class Article extends Model
   protected $fillable = ['id','title','body'];
   public $incrementing = false;
 }
+</code></pre>
+<hr/>
+<b class="title">Materi pertemuan 7</b><br/>
+1. Modify Controller, untuk menambahkan fungsi tambah :<br/>
+<br/>
+<pre><code>&lt;?php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Article;
+use Ramsey\Uuid\Uuid;
+
+class ArticleController extends Controller
+{
+
+  public function index()
+  {
+    $articles = Article::all();
+
+    return view('article.index',['articles'=&gt;$articles, 'no'=&gt;1]);
+  }
+
+  public function create()
+  {
+      return view('article.create');
+  }
+
+  public function store(Request $request)
+  {
+      $params = $request->all();
+
+      $uuid1 = Uuid::uuid1();
+      Article::create([
+        'id' => $uuid1->toString(),
+        'title' => $params['title'],
+        'body' => $params['body']
+      ]);
+
+      return redirect()->route('article.index');
+  }
+  ....
+}
+</code></pre>
+<br/><br/>
+2. Kemudian buat view index.create.php didalam folder article (lokasi resources/views/): <br/>
+<pre><code>@extends('layouts.app')
+
+@section('content')
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-8"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-header"&gt;{{ __('Create Article') }}&lt;/div&gt;
+
+                &lt;div class="card-body"&gt;
+                    &lt;form method="POST" action="{{ route('article.store') }}"&gt;
+                        @csrf
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="title" class="col-md-4 col-form-label text-md-right"&gt;{{ __('Title') }}&lt;/label&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title" autofocus&gt;
+
+                                @error('title')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="form-group row"&gt;
+                            &lt;label for="body" class="col-md-4 col-form-label text-md-right"&gt;{{ __('Body') }}&lt;/label&gt;
+
+                            &lt;div class="col-md-6"&gt;
+                                &lt;textarea id="body" class="form-control @error('body') is-invalid @enderror" name="body" required autocomplete="body" autofocus&gt;{{ old('body') }}&lt;/textarea&gt;
+
+                                @error('body')
+                                    &lt;span class="invalid-feedback" role="alert"&gt;
+                                        &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                    &lt;/span&gt;
+                                @enderror
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class="form-group row mb-0"&gt;
+                            &lt;div class="col-md-8 offset-md-4"&gt;
+                                &lt;button type="submit" class="btn btn-primary"&gt;
+                                    {{ __('Create') }}
+                                &lt;/button&gt;
+
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection
 </code></pre>
 
     </div>
