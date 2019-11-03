@@ -194,6 +194,7 @@ yang isinya :<br/>
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+<hr/>
 <b class="title">Materi pertemuan 6</b><br/>
 <a href="https://docs.google.com/forms/d/e/1FAIpQLScIXrFZ-UWtjMc-7UZrZ7Ig9zZB-u8UxBLOEpI87lZ7fj3glw/viewform" target="_blank">
 Klik disini untuk QUIZ 1</a>
@@ -355,6 +356,85 @@ class Article extends Model
 }
 </code></pre>
 
+<hr/>
+<b class="title">Materi pertemuan 7</b><br/>
+1. Pada ArticleController modifikasi method edit dan update seperti berikut : <br/>
+<pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Article;
+use Ramsey\Uuid\Uuid;
+
+class ArticleController extends Controller
+{
+
+    ....
+
+    public function edit($id)
+    {
+      $article = Article::find($id);
+      return view('article.edit', ['article'=> $article]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $params = $request->all();
+        $article = Article::find($id);
+
+        $article->title = $params['title'];
+        $article->body = $params['body'];
+
+        $article->save();
+        return redirect()->route('article.index');
+
+    }
+
+    ....
+}</code></pre>
+<br/>
+2. Kemudian buat view edit.blade.php didalam folder article (lokasi resources/views/): <br/>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;title&gt;Laravel 17&lt;/title&gt;
+        &lt;link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div class="container"&gt;
+        &lt;h1 class="title"&gt;
+            Edit Article
+        &lt;/h1&gt;
+        &lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+          &lt;a href="{{ route('article.index') }}" class="btn btn-info"&gt; Back&lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;br/&gt;
+
+        &lt;form action="{{ route('article.update', ['id' =&gt; $article-&gt;id ]) }}" method="POST"&gt;
+          @method('PUT')
+          @csrf
+          &lt;div class="form-group"&gt;
+            &lt;label for="title"&gt;Title&lt;/label&gt;
+            &lt;input type="text" name="title" class="form-control" id="title" placeholder="Enter title"
+            value="{{ $article-&gt;title }}"&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label for="body"&gt;Body&lt;/label&gt;
+            &lt;textarea name="body" rows="5" class="form-control" id="body"
+            placeholder="Body"&gt; {{ $article-&gt;body }}&lt;/textarea&gt;
+          &lt;/div&gt;
+          &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+      &lt;/form&gt;
+
+
+      &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 </div>
   <br/><br/><br/><br/>
   <br/><br/><br/><br/>
