@@ -394,7 +394,54 @@ class ArticleController extends Controller
     ....
 }</code></pre>
 <br/>
-2. Kemudian buat view edit.blade.php didalam folder article (lokasi resources/views/): <br/>
+2. Kemudian modifikasi view index.blade.php didalam folder article (lokasi resources/views/): <br/>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;title&gt;Laravel 17&lt;/title&gt;
+        &lt;link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div class="container"&gt;
+        &lt;h1 class="title"&gt;
+            Article
+        &lt;/h1&gt;
+        &lt;nav class="navbar navbar-expand-lg navbar-light bg-light"&gt;
+          &lt;a href="{{ route('article.create') }}" class="btn btn-primary"&gt; Tambah Baru&lt;/a&gt;
+        &lt;/nav&gt;
+
+        &lt;br/&gt;
+
+        &lt;table class="table"&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th scope="col"&gt;#&lt;/th&gt;
+              &lt;th scope="col"&gt;ID&lt;/th&gt;
+              &lt;th scope="col"&gt;Title&lt;/th&gt;
+              &lt;th scope="col"&gt;Created At&lt;/th&gt;
+              &lt;th scope="col"&gt;&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          @foreach($articles as $article)
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;th scope="row"&gt;{{ $no++ }}&lt;/th&gt;
+              &lt;td&gt;{{ $article-&gt;id }}&lt;/td&gt;
+              &lt;td&gt;{{ $article-&gt;title }}&lt;/td&gt;
+              &lt;td&gt;{{ $article-&gt;created_at }}&lt;/td&gt;
+              &lt;td&gt;&lt;a href="{{ route('article.edit', [ 'id'=&gt; $article-&gt;id ]) }}" class="btn btn-sm btn-primary"&gt;Edit&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+          @endforeach
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+3. Kemudian buat view edit.blade.php didalam folder article (lokasi resources/views/): <br/>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="{{ str_replace('_', '-', app()-&gt;getLocale()) }}"&gt;
     &lt;head&gt;
